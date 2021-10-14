@@ -1,0 +1,38 @@
+.task-item {
+    width: 25rem;
+    max-width: 100%;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    font-size: var(--size-text-small);
+    border-radius: var(--border-radius);
+
+    --task-item-padding: 1rem 1.5rem;
+}
+.task-item-header {
+    padding: var(--task-item-padding);
+    border-bottom: 1.5px solid var(--color-secondary);
+    display: flex;
+    align-items: center;
+}
+.task-item-header .badge {
+    max-width: 20%;
+    margin-left: auto;
+}
+.task-item h3 {
+    max-width: 75%;
+    font-size: var(--size-text);
+    font-family: var(--family-title);
+}
+.task-item-body {
+    padding: var(--task-item-padding);
+}
+.task-item-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--task-item-padding);
+    padding-bottom: 0;
+    padding-left: 0;
+    font-size: calc(var(--size-text-small) * 0.8);
+}
