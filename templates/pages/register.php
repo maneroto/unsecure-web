@@ -1,6 +1,6 @@
 <?php 
 require(get_file("templates/components/SignForm.php"));
-$form = new SignForm("", "Register");
+$form = new SignForm("", "Register", true);
 ?>
 <main id="sign">
     <div class="container-slim">

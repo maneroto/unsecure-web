@@ -1,7 +1,10 @@
 #sign {
-    padding: 5rem 0 7rem;
-    height: 100vh;
+    padding: 4.5rem 0 5rem;
+    min-height: 100vh;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #sign .h1 {
     margin-bottom: 2.5rem;
@@ -20,4 +23,12 @@
 }
 .sign-card * {
     margin-bottom: 2rem;
+}
+.sign-error {
+    font-size: var(--size-text-small);
+    color: var(--color-warning);
+    display: none;
+}
+.sign-error.active {
+    display: block;
 }
