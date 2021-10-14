@@ -1,0 +1,14 @@
+{
+    "login": {
+        "name": "login",
+        "title": "Log in",
+        "description": "Login to your account",
+        "keywords": "login, account, log account, username, email"
+    },
+    "register": {
+        "name": "register",
+        "title": "Register",
+        "description": "Register a new account",
+        "keywords": "register, account, register account, username, email"
+    }
+}

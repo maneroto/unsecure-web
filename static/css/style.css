@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+    --color-primary: #e9eae1;
+    --color-secondary: #1e1e1e;
+    --color-accent: #4183d7;
+
+    --family-text: 'Inter', sans-serif;
+    --family-title: 'Inter', sans-serif;
+
+    --size-text-small: clamp(0.8rem, 2.2vmin, 1rem);
+    --size-text: clamp(1rem, 2.5vmin, 1.25rem);
+    --size-text-big: clamp(1.25rem, 3vmin, 1.5rem);
+    --size-title: clamp(2.5rem, 6vmin, 3rem);
+    --size-title-big: clamp(4rem, 12.5vmin, 6rem);
+    --size-title-small: clamp(1.5rem, 3.54vmin, 1.9rem);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    color: inherit;
+    list-style: inherit;
+    line-height: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+    text-transform: inherit;
+    text-decoration: inherit;
+}
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+body {
+    color: var(--color-primary);
+    list-style: none;
+    line-height: 1.5;
+    font-size: var(--size-text);
+    font-family: var(--family-text);
+    font-weight: 400;
+    text-transform: none;
+    text-decoration: none;
+
+    background-color: var(--color-secondary);
+}
+.mouse-circle {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 999;
+    mix-blend-mode: exclusion;
+    transition: left 0.3s ease-out, top 0.3s ease-out;
+}
+::-webkit-scrollbar {
+    width: 0px;
+}
+::selection {
+    color: var(--color-secondary);
+    background-color: var(--color-primary);
+}
+
+.container-wide {
+    width: 85%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container-slim {
+    width: 70%;
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.h1 {
+    font-size: var(--size-title-big);
+    font-family: var(--family-title);
+    font-weight: 700;
+}
+.h2 {
+    font-size: var(--size-title);
+    font-family: var(--family-title);
+    font-weight: 700;
+}
+.h3 {
+    font-size: var(--size-title-small);
+    font-family: var(--family-title);
+    font-weight: 400;
+}
+.text-big {
+    font-size: var(--size-text-big);
+}
+.text-small {
+    font-size: var(--size-text-small);
+}
+
+.input {
+    padding: 0.5rem;
+    display: block;
+    background-color: transparent;
+    border: 1.5px solid transparent;
+    border-bottom: 1.5px solid var(--color-secondary);
+    color: var(--color-secondary);
+    transition: border-color 0.3s ease;
+}
+.input:focus {
+    border-color: var(--color-secondary);
+}
+
+.btn {
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 0.5rem 0.75rem;
+    border: 1.5px solid transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+.btn:active {
+    transform: scale(0.95);
+}
+.btn.secondary {
+    border-color: var(--color-secondary);
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+.btn.secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+.btn.primary {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+}
+.btn.primary:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+.link {
+    color: var(--color-accent);
+    transition: color 0.3s ease;
+}
+.link:hover {
+    color: var(--color-primary);
+}
