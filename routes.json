@@ -1,4 +1,10 @@
 {
+    "unsecure-web": {
+        "name": "dashboard",
+        "title": "Dashboard",
+        "description": "Welcome to the dashboard where you are going to see and manage all the tasks you have to do",
+        "keywords": "dashboard, tasks, manage, update, to-do"
+    },
     "login": {
         "name": "login",
         "title": "Log in",

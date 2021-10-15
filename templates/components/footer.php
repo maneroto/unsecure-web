@@ -1,5 +1,5 @@
-<footer id="footer">
-    <div class="container-slim">
-
+<footer class="footer">
+    <div class="container-wide">
+        &copy;MyTasks 2021
     </div>
 </footer>

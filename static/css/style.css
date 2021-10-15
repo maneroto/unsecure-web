@@ -66,8 +66,8 @@ body {
     width: 0px;
 }
 ::selection {
-    color: var(--color-secondary);
-    background-color: var(--color-primary);
+    color: var(--color-primary);
+    background-color: var(--color-accent);
 }
 
 .container-wide {
@@ -87,16 +87,19 @@ body {
     font-size: var(--size-title-big);
     font-family: var(--family-title);
     font-weight: 700;
+    line-height: 1;
 }
 .h2 {
     font-size: var(--size-title);
     font-family: var(--family-title);
     font-weight: 700;
+    line-height: 1;
 }
 .h3 {
     font-size: var(--size-title-small);
     font-family: var(--family-title);
     font-weight: 400;
+    line-height: 1;
 }
 
 .text-big {
@@ -108,6 +111,7 @@ body {
 
 .badge {
     display: inline-block;
+    user-select: none;
     padding: 0.25rem 0.5rem;
     font-size: var(--size-text-small);
     border-radius: 40%;
@@ -130,16 +134,26 @@ body {
     display: block;
     background-color: transparent;
     border: 1.5px solid transparent;
-    border-bottom: 1.5px solid var(--color-secondary);
-    color: var(--color-secondary);
     transition: border-color 0.3s ease;
 }
-.input:focus {
+.input.primary {
+    border-bottom: 1.5px solid var(--color-primary);
+    color: var(--color-primary);
+}
+.input.primary:focus {
+    border-color: var(--color-primary);
+}
+.input.secondary {
+    border-bottom: 1.5px solid var(--color-secondary);
+    color: var(--color-secondary);
+}
+.input.secondary:focus {
     border-color: var(--color-secondary);
 }
 
 .btn {
     cursor: pointer;
+    user-select: none;
     text-transform: uppercase;
     padding: 0.5rem 0.75rem;
     border: 1.5px solid transparent;
@@ -167,6 +181,15 @@ body {
     background-color: transparent;
     color: var(--color-secondary);
 }
+.btn.accent {
+    border-color: var(--color-accent);
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+}
+.btn.accent:hover {
+    background-color: transparent;
+    color: var(--color-accent);
+}
 .btn.warning {
     border-color: var(--color-warning);
     background-color: var(--color-warning);
@@ -183,4 +206,37 @@ body {
 }
 .link:hover {
     color: var(--color-primary);
+}
+
+.navbar {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    padding: 2rem 0 1.5rem;
+    background-color: var(--color-secondary);
+    border-bottom: 1.5px solid var(--color-primary);
+}
+.navbar .container-wide {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+.nav-menu {
+    margin-left: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.nav-search {
+    display: flex;
+    align-items: center;
+    margin-right: 5rem;
+}
+
+.footer {
+    padding: 1.5rem 0;
+    border-top: 1.5px solid var(--color-primary);
+    text-align: right;
 }

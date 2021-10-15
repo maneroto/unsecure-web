@@ -15,7 +15,7 @@ class SignForm {
             return "";
         }
         return '
-            <input type="password" class="input" placeholder="Confirm your password" id="password-confirm" name="password-confirm">
+            <input type="password" class="input secondary" placeholder="Confirm your password" id="password-confirm" name="password-confirm" />
         ';
     }
     
@@ -23,9 +23,9 @@ class SignForm {
         echo sprintf('
         <div class="sign-card">
             <form method="POST" action="%s">
-                <input type="email" class="input" placeholder="your_email@mail.com" id="email" name="email" />
-                <input type="password" class="input" placeholder="Enter your password" id="password"
-                    name="password">
+                <input type="text" class="input secondary" placeholder="Enter your username" id="username" name="username" />
+                <input type="password" class="input secondary" placeholder="Enter your password" id="password"
+                    name="password" />
                 %s
                 <button type="submit" class="btn secondary">
                     %s

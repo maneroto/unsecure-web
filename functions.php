@@ -32,7 +32,7 @@ function page_link($path) {
 }
 function check_auth() {
     global $config, $pageInfo;
-    if (!isset($_SESSION['logged']) && $pageInfo['name'] != "login" && $pageInfo['name'] != 'register' && $pageInfo['name'] != '') {
+    if (!isset($_SESSION['logged']) && $pageInfo['name'] != "login" && $pageInfo['name'] != 'register' && $pageInfo['name'] != 'dashboard') {
         header("location: ".$config['base_dir'].'/login');
         exit;
     }
