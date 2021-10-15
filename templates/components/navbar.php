@@ -12,7 +12,7 @@
                     Search
                 </button>
             </form>
-            <a href="<?php page_link("login") ?>" class="btn accent">new task</a>
+            <a href="<?php page_link("task") ?>" class="btn accent">new task</a>
         </div>
     </div>
 </nav>

@@ -140,6 +140,9 @@ body {
     border-bottom: 1.5px solid var(--color-primary);
     color: var(--color-primary);
 }
+.input.primary::placeholder {
+    color: var(--color-primary);
+}
 .input.primary:focus {
     border-color: var(--color-primary);
 }
@@ -147,7 +150,40 @@ body {
     border-bottom: 1.5px solid var(--color-secondary);
     color: var(--color-secondary);
 }
+.input.secondary::placeholder {
+    color: var(--color-secondary);
+}
 .input.secondary:focus {
+    border-color: var(--color-secondary);
+}
+
+.textarea {
+    padding: 0.5rem;
+    resize: none;
+    display: block;
+    background-color: transparent;
+    border: 1.5px solid transparent;
+    min-height: 10rem;
+    transition: border-color 0.3s ease;
+}
+.textarea.primary {
+    border-bottom: 1.5px solid var(--color-primary);
+    color: var(--color-primary);
+}
+.textarea.primary::placeholder {
+    color: var(--color-primary);
+}
+.textarea.primary:focus {
+    border-color: var(--color-primary);
+}
+.textarea.secondary {
+    border-bottom: 1.5px solid var(--color-secondary);
+    color: var(--color-secondary);
+}
+.textarea.secondary::placeholder {
+    color: var(--color-secondary);
+}
+.textarea.secondary:focus {
     border-color: var(--color-secondary);
 }
 

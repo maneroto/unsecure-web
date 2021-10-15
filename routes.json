@@ -16,5 +16,11 @@
         "title": "Register",
         "description": "Register a new account",
         "keywords": "register, account, register account, username, email"
+    },
+    "task": {
+        "name": "task",
+        "title": "Task",
+        "description": "If you are inside this page, you may be editing an existing task or creating a new one",
+        "keywords": "task, edit, create, new, update, create task, update task, edit task"
     }
 }

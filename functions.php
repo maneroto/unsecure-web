@@ -31,10 +31,12 @@ function page_link($path) {
     echo $config['base_dir'].'/'.$path;
 }
 function check_auth() {
-    global $config, $pageInfo;
-    if (!isset($_SESSION['logged']) && $pageInfo['name'] != "login" && $pageInfo['name'] != 'register' && $pageInfo['name'] != 'dashboard') {
+    global $config, $pageInfo, $authInfo;
+    if (!isset($_SESSION['logged']) && $authInfo['auth_required'][$pageInfo['name']]) {
         header("location: ".$config['base_dir'].'/login');
         exit;
+    } else if (isset($_SESSION['logged']) && !$authInfo['auth_required'][$pageInfo['name']]) {
+        header("location: ".$config['base_dir']);
     }
 }
 

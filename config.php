@@ -14,4 +14,11 @@ $pageInfo["description"] = "";
 $pageInfo["keywords"] = "";
 $pageInfo["css"] = "";
 $pageInfo["js"] = "";
+
+$authInfo['auth_required'] = array(
+    "login" => false, 
+    "register" => false, 
+    "dashboard" => false, 
+    "task" => false,
+);
 ?>

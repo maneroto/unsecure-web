@@ -1,16 +1,12 @@
-#sign {
-    padding: 4.5rem 0 5rem;
-    min-height: 100vh;
+#task {
+    padding: 5rem 0;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-#sign .h1 {
-    margin-bottom: 2.5rem;
-}
-.sign-card {
-    width: 30rem;
+.task-form-card {
+    width: 40rem;
     max-width: 100%;
     padding: 3rem 1.5rem 0;
     background-color: var(--color-primary);
@@ -19,17 +15,12 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    margin-bottom: 1.5rem;
     border-radius: var(--border-radius);
 }
-.sign-card * {
+.task-form-card * {
     margin-bottom: 2rem;
 }
-.sign-error {
-    font-size: var(--size-text-small);
-    color: var(--color-warning);
-    display: none;
-}
-.sign-error.active {
-    display: block;
+.task-form-card form > *:not(.btn) {
+    width: 30rem;
+    max-width: 100%;
 }
