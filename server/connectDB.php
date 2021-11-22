@@ -14,11 +14,18 @@ function connect() {
     }
     return $db;
 }
+
 function close($db) {
     try {
         mysqli_close($db);
     } catch(Exception $e) {
         debug_console($e->getMessage());
     }
+}
+
+function db_except($msg, $db) {
+    throw Exception(
+        $msg." ".$db->errno.": ".$db->error
+    );
 }
 ?>

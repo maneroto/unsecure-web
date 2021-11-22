@@ -1,22 +1,26 @@
 <?php
 require_once("../../functions.php");
+require_once(get_file("config.php"));
 require_once(get_file("server/connectDB.php"));
 
-class User {
+class Task {
 
-    public static function create($email, $password) {
+    public static function create($idUser, $title, $urgency, $description, $dueDate) {
         $res = false;
 
         try {
             $db = connect();
             $stmt = null;
-            $query = "INSERT INTO uw_user (email, password) VALUES (?, ?)";
+            $query = "INSERT INTO uw_task (id_user, title, urgency, description, due_date) VALUES (?, ?, ?, ?, ?)";
 
-            $email = $db->real_escape_string($email);
-            $password = $db->real_escape_string($password);
+            $idUser = $db->real_escape_string($idUser);
+            $title = $db->real_escape_string($title);
+            $urgency = $db->real_escape_string($urgency);
+            $description = $db->real_escape_string($description);
+            $dueDate = $db->real_escape_string($dueDate);
 
             $stmt = $db->prepare($query);
-            $stmt->bind_param("ss", $email, $password);
+            $stmt->bind_param("isiss", $idUser, $title, $urgency, $description, $dueDate);
             $stmt->execute();
 
             if ($stmt->affected_rows) {
@@ -32,14 +36,14 @@ class User {
 
         return $res;
     }
-    
+
     public static function get($id) {
         $res = null;
         
         try {
             $db = connect();
             $stmt = null;
-            $query = "SELECT * FROM uw_user WHERE id = ?";
+            $query = "SELECT * FROM uw_task WHERE id = ?";
 
             $id = $db->real_escape_string($id);
 
@@ -63,7 +67,7 @@ class User {
 
         try {
             $db = connect();
-            $query = "SELECT * FROM uw_user";
+            $query = "SELECT * FROM uw_task";
 
             $res = $db->query($query);
 
@@ -75,45 +79,47 @@ class User {
         return $res;
     }
 
-    public static function get_by_email($email) {
+    public static function get_by_title($title) {
         $res = null;
-        
+
         try {
             $db = connect();
             $stmt = null;
-            $query = "SELECT * FROM uw_user WHERE email = ?";
+            $query = "SELECT * FROM uw_task WHERE title LIKE CONCAT('%',?,'%')";
 
-            $email = $db->real_escape_string($email);
+            $title = $db->real_escape_string($title);
 
             $stmt = $db->prepare($query);
-            $stmt->bind_param("s", $email);
+            $stmt->bind_param("s", $title);
             $stmt->execute();
 
             $res = $stmt->get_result();
-
+            
             $stmt->close();
             close($db);
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             echo $e->getMessage();
         }
-        
+
         return $res;
     }
 
-    public static function update($id, $email, $password) {
+    public static function update($id, $title, $urgency, $description, $dueDate) {
         $res = false;
 
         try {
             $db = connect();
             $stmt = null;
-            $query = "UPDATE uw_user SET email=?, password=? WHERE id=?";
+            $query = "UPDATE uw_task SET title=?, urgency=?, description=?, due_date=? WHERE id=?";
 
             $id = $db->real_escape_string($id);
-            $email = $db->real_escape_string($email);
-            $password = $db->real_escape_string($password);
+            $title = $db->real_escape_string($title);
+            $urgency = $db->real_escape_string($urgency);
+            $description = $db->real_escape_string($description);
+            $dueDate = $db->real_escape_string($dueDate);
 
             $stmt = $db->prepare($query);
-            $stmt->bind_param("ssi", $email, $password, $id);
+            $stmt->bind_param("sissi", $title, $urgency, $description, $dueDate, $id);
             $stmt->execute();
 
             if ($stmt->affected_rows) {
@@ -136,7 +142,7 @@ class User {
         try {
             $db = connect();
             $stmt = null;
-            $query = "DELETE FROM uw_user WHERE id = ?";
+            $query = "DELETE FROM uw_task WHERE id = ?";
 
             $id = $db->real_escape_string($id);
 
@@ -157,34 +163,5 @@ class User {
 
         return $res;
     }
-
-    public static function delete_by_email($email) {
-        $res = false;
-
-        try {
-            $db = connect();
-            $stmt = null;
-            $query = "DELETE FROM uw_user WHERE email = ?";
-
-            $email = $db->real_escape_string($email);
-
-            $stmt = $db->prepare($query);
-            $stmt->bind_param("s", $email);
-            $stmt->execute();
-
-            if ($stmt->affected_rows) {
-                $res = true;
-            }
-
-            $stmt->close();
-            close($db);
-        } catch (Exception $e) {
-            echo $e->getMessage();
-            die();
-        }
-
-        return $res;
-    }
 }
-
 ?>

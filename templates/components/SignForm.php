@@ -33,7 +33,7 @@ class SignForm {
                 <p class="sign-error">Error message</p>
             </form>
         </div>
-        ', $this->action, $this->get_confirm_input(), $this->submit);
+        ', $this->method, $this->action, $this->get_confirm_input(), $this->submit);
     }
 }
 ?>

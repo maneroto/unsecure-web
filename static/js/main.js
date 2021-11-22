@@ -1,3 +1,23 @@
+const server = axios.create({
+    header: {
+        'Content-Type': 'application/json',
+    },
+    baseURL: '/unsecure-web/server/routes/',
+});
+
+const newTag = ({
+    tagName,
+    target = undefined,
+    textContent = undefined,
+    className = undefined,
+} = {}) => {
+    const tag = document.createElement(tagName);
+    if (textContent != undefined) tag.textContent = textContent;
+    if (className != undefined) tag.className = className;
+    if (target != undefined) target.appendChild(tag);
+    return tag;
+};
+
 const createMouseCircle = () => {
     const circle = document.createElement('figure');
     circle.classList.add('mouse-circle');

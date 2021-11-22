@@ -4,6 +4,9 @@
         <div class="tasks-list">
             <?php 
                 require get_file("templates/components/TaskItem.php"); 
+
+                
+
                 $item = new TaskItem(
                     "This is the task title",
                     3,

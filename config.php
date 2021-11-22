@@ -5,8 +5,8 @@ $config['root'] = "/unsecure-web";
 $config['base_dir'] = $config['http_protocol'].$config['host'].$config['root'];
 $config['db_server'] = 'localhost:3306';
 $config['db_name'] = "unsecure_db";
-$config['db_username'] = "db_admin";
-$config["db_password"] = "the password";
+$config['db_username'] = "root";
+$config["db_password"] = "";
 
 $pageInfo['name'] = "";
 $pageInfo['title'] = "";
