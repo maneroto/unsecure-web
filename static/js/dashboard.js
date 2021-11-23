@@ -100,15 +100,20 @@ const showTasks = (tasksData) => {
         tasksData.forEach((item) =>
             tasksList.appendChild(createTaskItem(item))
         );
-    } else {
-        tasksList.innerHTML = 'No tasks found';
     }
+    // else {
+    //     tasksList.innerHTML = 'No tasks found';
+    // }
 };
 
 const searchTasks = (title) => {
     if (title) {
         getTaskByTitle({ title: title }).then((res) => {
-            showTasks(res);
+            if (res.length > 0) {
+                showTasks(res);
+            } else
+                document.querySelector('.tasks-list').innerHTML =
+                    'No tasks found: ' + title;
         });
     } else {
         getTasks().then((res) => {

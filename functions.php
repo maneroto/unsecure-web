@@ -36,13 +36,8 @@ function page_link($path) {
 }
 
 function check_auth() {
-    global $config, $pageInfo, $authInfo;
-    if (!isset($_SESSION['logged']) && $authInfo['auth_required'][$pageInfo['name']]) {
-        header("location: ".$config['base_dir'].'/login');
-        exit;
-    } else if (isset($_SESSION['logged']) && !$authInfo['auth_required'][$pageInfo['name']]) {
-        header("location: ".$config['base_dir']);
-    }
+    global $pageInfo, $authInfo;
+    echo $authInfo['auth_required'][$pageInfo['name']];
 }
 
 function not_empty(array $array) {
