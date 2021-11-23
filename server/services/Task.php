@@ -62,15 +62,23 @@ class Task {
         return $res;
     }
     
-    public static function get_all() {
+    public static function get_all($id_user) {
         $res = null;
 
         try {
             $db = connect();
-            $query = "SELECT * FROM uw_task";
+            $stmt = null;
+            $query = "SELECT * FROM uw_task WHERE id_user = ?";
 
-            $res = $db->query($query);
+            $id_user = $db->real_escape_string($id_user);
 
+            $stmt = $db->prepare($query);
+            $stmt->bind_param("i", $id_user);
+            $stmt->execute();
+
+            $res = $stmt->get_result();
+
+            $stmt->close();
             close($db);
         } catch (Exception $e) {
             echo $e->getMessage();

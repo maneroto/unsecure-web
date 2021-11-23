@@ -30,7 +30,7 @@ function create() {
         $data = false;
         $body = json_decode(file_get_contents('php://input'), true);
 
-        $idUser = clear_input(1);
+        $idUser = clear_input($_SESSION['id']);
         $title = clear_input($body['title']);
         $urgency = clear_input($body['urgency']);
         $description = clear_input($body['description']);
@@ -84,7 +84,8 @@ function get() {
 function get_all() {
     try {
         $data = array();
-        $res = Task::get_all();
+        $res = Task::get_all($_SESSION['id']);
+        
 
         while($row = $res->fetch_assoc()) {
             $data[] = $row;

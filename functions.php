@@ -37,7 +37,9 @@ function page_link($path) {
 
 function check_auth() {
     global $pageInfo, $authInfo;
-    echo $authInfo['auth_required'][$pageInfo['name']];
+    if ($pageInfo['name'] != '') {
+        #something
+    }
 }
 
 function not_empty(array $array) {
