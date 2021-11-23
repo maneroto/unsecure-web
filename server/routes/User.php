@@ -25,7 +25,7 @@ switch($method) {
 
 function create() {
     try {
-        $data = false;
+        //$data = false;
         $body = json_decode(file_get_contents('php://input'), true);
 
         // $email = clear_input($body['email']);
