@@ -18,7 +18,7 @@ $pageInfo["js"] = "";
 $authInfo['auth_required'] = array(
     "login" => false, 
     "register" => false, 
-    "dashboard" => false, 
-    "task" => false,
+    "dashboard" => true, 
+    "task" => true,
 );
 ?>

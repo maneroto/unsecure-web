@@ -36,9 +36,9 @@ function page_link($path) {
 }
 
 function check_auth() {
-    global $pageInfo, $authInfo;
-    if ($pageInfo['name'] != '') {
-        #something
+    global $config, $pageInfo, $authInfo;
+    if ($pageInfo['name'] != '' && $authInfo['auth_required'][$pageInfo['name']] && !isset($_SESSION['id'])) {
+        header("location: ".$config['base_dir'].'/login');
     }
 }
 
@@ -60,5 +60,4 @@ function clear_input($input) {
 }
 
 init_page();
-//check_auth();
 ?>
