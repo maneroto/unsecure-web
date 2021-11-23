@@ -28,9 +28,13 @@ function create() {
         $data = false;
         $body = json_decode(file_get_contents('php://input'), true);
 
-        $email = clear_input($body['email']);
-        $password = clear_input($body['password']);
-        $password_confirm = clear_input($body['password_confirm']);
+        // $email = clear_input($body['email']);
+        // $password = clear_input($body['password']);
+        // $password_confirm = clear_input($body['password_confirm']);
+
+        $email = $body['email'];
+        $password = $body['password'];
+        $password_confirm = $body['password_confirm'];
 
         if (not_empty([$email, $password, $password_confirm])) {
             if ($password != $password_confirm) {

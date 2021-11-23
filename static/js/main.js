@@ -14,10 +14,12 @@ const logout = async () => {
 const setLogoutButton = () => {
     const logoutButton = document.querySelector('#logout-button');
 
-    logoutButton.onclick = function () {
-        logout();
-        window.location.replace('/unsecure-web/login');
-    };
+    if (logoutButton) {
+        logoutButton.onclick = function () {
+            logout();
+            window.location.replace('/unsecure-web/login');
+        };
+    }
 };
 
 const newTag = ({

@@ -37,7 +37,7 @@ class Task {
         return $res;
     }
 
-    public static function get($idUser, $id) {
+    public static function get($id_user, $id) {
         $res = null;
         
         try {

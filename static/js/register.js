@@ -1,5 +1,4 @@
 const register = async (data) => {
-    console.log(data);
     const response = await server.post('User.php', data);
 
     return response.data;
