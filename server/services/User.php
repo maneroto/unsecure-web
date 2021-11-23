@@ -9,21 +9,22 @@ class User {
 
         try {
             $db = connect();
-            $stmt = null;
-            $query = "INSERT INTO uw_user (email, password) VALUES (?, ?)";
+            $res = $db->query("INSERT INTO uw_user (email, password) VALUES (\"".$email."\", \"".$password."\")");
+            // $stmt = null;
+            // $query = "INSERT INTO uw_user (email, password) VALUES (?, ?)";
 
-            $email = $db->real_escape_string($email);
-            $password = $db->real_escape_string($password);
+            // $email = $db->real_escape_string($email);
+            // $password = $db->real_escape_string($password);
 
-            $stmt = $db->prepare($query);
-            $stmt->bind_param("ss", $email, $password);
-            $stmt->execute();
+            // $stmt = $db->prepare($query);
+            // $stmt->bind_param("ss", $email, $password);
+            // $stmt->execute();
 
-            if ($stmt->affected_rows) {
-                $res = true;
-            }
+            // if ($stmt->affected_rows) {
+            //     $res = true;
+            // }
 
-            $stmt->close();
+            // $stmt->close();
             close($db);
         } catch (Exception $e) {
             echo $e->getMessage();

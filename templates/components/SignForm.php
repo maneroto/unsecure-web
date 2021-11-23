@@ -15,15 +15,15 @@ class SignForm {
             return "";
         }
         return '
-            <input type="password" class="input secondary" placeholder="Confirm your password" id="password-confirm" name="password-confirm" required />
+            <input type="password" class="input secondary" placeholder="Confirm your password" id="password-confirm" name="password_confirm" required />
         ';
     }
     
     public function render() {
         echo sprintf('
         <div class="sign-card">
-            <form method="POST" action="%s">
-                <input type="text" class="input secondary" placeholder="Enter your username" id="username" name="username" required />
+            <form method="POST" action="%s" id="sign-form">
+                <input type="email" class="input secondary" placeholder="Enter your email" id="email" name="email" required />
                 <input type="password" class="input secondary" placeholder="Enter your password" id="password"
                     name="password" required />
                 %s

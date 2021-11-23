@@ -101,7 +101,7 @@ const showTasks = (tasksData) => {
             tasksList.appendChild(createTaskItem(item))
         );
     } else {
-        tasksList.innerText = 'No tasks found';
+        tasksList.innerHTML = 'No tasks found';
     }
 };
 

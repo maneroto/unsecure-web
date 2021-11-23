@@ -12,7 +12,7 @@ const newTag = ({
     className = undefined,
 } = {}) => {
     const tag = document.createElement(tagName);
-    if (textContent != undefined) tag.textContent = textContent;
+    if (textContent != undefined) tag.innerText = textContent;
     if (className != undefined) tag.className = className;
     if (target != undefined) target.appendChild(tag);
     return tag;

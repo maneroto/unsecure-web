@@ -171,7 +171,7 @@ function delete() {
         echo json_encode($data);
     } catch(Exception $e) {
         http_response_code(500);
-        echo json_encode("Something failed while trying to retrieve all tasks: ".$e->getMessage());
+        echo json_encode("Something failed while trying to delete a task: ".$e->getMessage());
     }
 }
 ?>
