@@ -61,10 +61,11 @@ function get() {
         $data = array();
         $res = null;
 
+        $idUser = clear_input($_SESSION['id']);
         $id = clear_input($_GET['id']);
 
-        if (not_empty([$id])) {
-            $res = Task::get($id);
+        if (not_empty([$idUser, $id])) {
+            $res = Task::get($idUser, $id);
         } else {
             throw new Exception("You need to provide the task id");
         }

@@ -37,18 +37,19 @@ class Task {
         return $res;
     }
 
-    public static function get($id) {
+    public static function get($idUser, $id) {
         $res = null;
         
         try {
             $db = connect();
             $stmt = null;
-            $query = "SELECT * FROM uw_task WHERE id = ?";
+            $query = "SELECT * FROM uw_task WHERE id_user = ? AND id = ?";
 
+            $id_user = $db->real_escape_string($id_user);
             $id = $db->real_escape_string($id);
 
             $stmt = $db->prepare($query);
-            $stmt->bind_param("i", $id);
+            $stmt->bind_param("ii", $id_user, $id);
             $stmt->execute();
 
             $res = $stmt->get_result();
