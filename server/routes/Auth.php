@@ -8,6 +8,8 @@ $route = implode("/", array_slice(explode("/", $_SERVER["REQUEST_URI"]), 5));
 
 if($method == "POST") {
     login();
+} else if ($method == "GET") {
+    logout();
 }
 
 function login() {
@@ -36,6 +38,17 @@ function login() {
         echo json_encode($data);
     } catch(Exception $e) {
         http_response_code(401);
+        echo json_encode("Something failed while trying to login: ".$e->getMessage());
+    }
+}
+
+function logout () {
+    try { 
+        unset($_SESSION['id']);
+
+        http_response_code(200);
+    } catch(Exception $e) {
+        http_response_code(500);
         echo json_encode("Something failed while trying to login: ".$e->getMessage());
     }
 }

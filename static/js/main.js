@@ -5,6 +5,21 @@ const server = axios.create({
     baseURL: '/unsecure-web/server/routes/',
 });
 
+const logout = async () => {
+    const response = await server.get('Auth.php');
+
+    return response.data;
+};
+
+const setLogoutButton = () => {
+    const logoutButton = document.querySelector('#logout-button');
+
+    logoutButton.onclick = function () {
+        logout();
+        window.location.replace('/unsecure-web/login');
+    };
+};
+
 const newTag = ({
     tagName,
     target = undefined,
@@ -30,4 +45,8 @@ const moveWithMouse = (target, event) => {
     target.style.left = event.clientX - target.clientWidth / 2 + 'px';
     target.style.top = event.clientY - target.clientHeight / 2 + 'px';
 };
-createMouseCircle();
+
+document.addEventListener('DOMContentLoaded', function () {
+    setLogoutButton();
+    createMouseCircle();
+});
